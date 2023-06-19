@@ -34,7 +34,13 @@ jobs:
  
         uses: aws-actions/configure-aws-credentials@v2
         with:          
-          aws-access-key-id: 
-          aws-secret-access-key:
+          aws-access-key-id: ${{ secrets.shru }}
+          aws-secret-access-key: ${{ secrets.pass }}
+      - name: create database 
+        run: |
+          aws rds create-db-instance --db-instance-identifier shru --db-instance-class db.t3.micro --engine postgres --master-username shruthi --master-user-password vinayak143shruthi --allocated-storage 20
+
+        
+      
 
          
